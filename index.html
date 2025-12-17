@@ -4,153 +4,191 @@
 <meta charset="UTF-8">
 <title>A+ Home Tuition</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Best Home Tuition for Class 1-12, JEE & NEET Preparation.">
 
 <style>
-*{
-    box-sizing:border-box;
-}
+    /* 1. SMOOTH SCROLLING (Makes clicking links feel premium) */
+    html {
+        scroll-behavior: smooth;
+    }
 
-body{
-    margin:0;
-    font-family: Arial, sans-serif;
-    background:#f4f6f9;
-    color:#333;
-}
+    *{
+        box-sizing:border-box;
+    }
 
-/* HERO SECTION */
-.hero{
-    min-height:100vh;
-    background:
-      linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-      url("study.jpg");
-    background-size:cover;
-    background-position:center center;
-    background-repeat:no-repeat;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:20px;
-    color:white;
-}
+    body{
+        margin:0;
+        font-family: 'Segoe UI', Arial, sans-serif; /* Slightly nicer font */
+        background:#f4f6f9;
+        color:#333;
+        line-height: 1.6;
+    }
 
-.hero h1{
-    font-size:40px;
-    margin-bottom:10px;
-}
-
-.hero p{
-    font-size:18px;
-    max-width:700px;
-    margin:auto;
-}
-
-/* Mobile image adjustment */
-@media (max-width: 768px){
+    /* HERO SECTION */
     .hero{
-        background-position: top center;
+        min-height:100vh; /* Full height on laptop */
+        background:
+            linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+            url("study.jpg"); /* YOUR GITHUB IMAGE */
+        background-size:cover;
+        background-position:center center;
+        background-repeat:no-repeat;
+        /* Fixed attachment creates a cool parallax effect on Laptop */
+        background-attachment: fixed; 
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        padding:20px;
+        color:white;
     }
+
     .hero h1{
-        font-size:30px;
+        font-size:48px; /* Bigger on desktop */
+        margin-bottom:15px;
+        text-shadow: 2px 2px 5px rgba(0,0,0,0.5); /* Makes text pop over image */
     }
+
     .hero p{
-        font-size:16px;
+        font-size:20px;
+        max-width:700px;
+        margin:auto;
     }
-}
 
-/* SECTIONS */
-section{
-    padding:40px 20px;
-    max-width:900px;
-    margin:auto;
-}
+    /* --- MOBILE FIXES (The solution to your zoom issue) --- */
+    @media (max-width: 768px){
+        .hero{
+            /* Step 1: Turn off Parallax on mobile (it causes zoom issues on iPhones) 
+            */
+            background-attachment: scroll; 
+            
+            /* Step 2: Reduce height. 
+               Instead of 100vh (full screen), use 60vh or 500px.
+               This prevents the browser from zooming the image too much to fill height.
+            */
+            min-height: 60vh; 
+            background-position: center top;
+        }
+        .hero h1{
+            font-size:32px;
+        }
+        .hero p{
+            font-size:16px;
+        }
+    }
 
-h2{
-    text-align:center;
-    color:#1e88e5;
-    margin-bottom:25px;
-}
+    /* SECTIONS */
+    section{
+        padding:50px 20px;
+        max-width:1000px;
+        margin:auto;
+    }
 
-/* CARDS */
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-}
+    h2{
+        text-align:center;
+        color:#1565c0;
+        margin-bottom:30px;
+        font-size: 28px;
+    }
 
-.card{
-    background:white;
-    padding:20px;
-    border-radius:8px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.08);
-    text-align:center;
-}
+    /* CARDS */
+    .cards{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+        gap:25px;
+    }
 
-/* FEES */
-.highlight{
-    background:#e3f2fd;
-    padding:25px;
-    border-radius:8px;
-    text-align:center;
-}
+    .card{
+        background:white;
+        padding:25px;
+        border-radius:10px;
+        box-shadow:0 4px 15px rgba(0,0,0,0.05);
+        text-align:center;
+        font-weight: bold;
+        transition: transform 0.3s;
+    }
+    
+    .card:hover{
+        transform: translateY(-5px); /* Animation when hovering */
+    }
 
-/* FORM */
-form{
-    background:white;
-    padding:25px;
-    border-radius:8px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.08);
-    max-width:500px;
-    margin:auto;
-}
+    /* FEES */
+    .highlight{
+        background:#e3f2fd;
+        padding:30px;
+        border-radius:10px;
+        text-align:center;
+        border-left: 5px solid #1e88e5; /* Nice visual accent */
+        font-size: 18px;
+    }
 
-input, select, button{
-    width:100%;
-    padding:12px;
-    margin:10px 0;
-    font-size:15px;
-}
+    /* FORM */
+    form{
+        background:white;
+        padding:30px;
+        border-radius:10px;
+        box-shadow:0 4px 15px rgba(0,0,0,0.1);
+        max-width:500px;
+        margin:auto;
+    }
 
-button{
-    background:#1e88e5;
-    color:white;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-}
+    input, select, button{
+        width:100%;
+        padding:14px;
+        margin:10px 0;
+        font-size:16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
 
-button:hover{
-    background:#1565c0;
-}
+    button{
+        background:#1e88e5;
+        color:white;
+        border:none;
+        font-weight: bold;
+        cursor:pointer;
+        transition: background 0.3s;
+    }
 
-/* CONTACT */
-.contact{
-    background:#1e88e5;
-    color:white;
-    text-align:center;
-    padding:30px 20px;
-}
+    button:hover{
+        background:#0d47a1;
+    }
 
-/* FOOTER */
-footer{
-    background:#0d47a1;
-    color:white;
-    text-align:center;
-    padding:12px;
-}
+    /* CONTACT */
+    .contact{
+        background:#1565c0;
+        color:white;
+        text-align:center;
+        padding:40px 20px;
+    }
 
-/* WHATSAPP FLOAT */
-.whatsapp{
-    position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#25d366;
-    color:white;
-    padding:16px;
-    border-radius:50%;
-    font-size:22px;
-    text-decoration:none;
-}
+    /* FOOTER */
+    footer{
+        background:#0a357a;
+        color:white;
+        text-align:center;
+        padding:15px;
+        font-size: 14px;
+    }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp{
+        position:fixed;
+        bottom:20px;
+        right:20px;
+        background:#25d366;
+        color:white;
+        width: 60px;
+        height: 60px;
+        border-radius:50%;
+        font-size:30px;
+        text-decoration:none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        z-index: 100;
+    }
 </style>
 
 <script>
@@ -166,7 +204,7 @@ function sendToWhatsApp(){
         return;
     }
 
-    var message =
+    var message = 
         "New Enquiry - A+ Home Tuition\n" +
         "Name: " + name + "\n" +
         "Phone: " + phone + "\n" +
@@ -174,7 +212,6 @@ function sendToWhatsApp(){
         "Interested In: " + interest;
 
     var encodedMessage = encodeURIComponent(message);
-
     var whatsappURL = "https://wa.me/918899800719?text=" + encodedMessage;
 
     window.open(whatsappURL, "_blank");
@@ -184,7 +221,6 @@ function sendToWhatsApp(){
 
 <body>
 
-<!-- HERO -->
 <div class="hero">
     <div>
         <h1>A+ Home Tuition</h1>
@@ -196,7 +232,6 @@ function sendToWhatsApp(){
     </div>
 </div>
 
-<!-- SERVICES -->
 <section>
 <h2>What We Offer</h2>
 <div class="cards">
@@ -207,51 +242,48 @@ function sendToWhatsApp(){
 </div>
 </section>
 
-<!-- FEES -->
 <section>
 <h2>Fees & Timings</h2>
 <div class="highlight">
-Affordable fees discussed personally.<br>
-Flexible morning & evening batches available.
+    Affordable fees discussed personally.<br>
+    Flexible morning & evening batches available.
 </div>
 </section>
 
-<!-- ENQUIRY -->
 <section>
 <h2>Admission Enquiry</h2>
 
-<form>
-<input id="studentName" type="text" placeholder="Student Name">
-<input id="phoneNumber" type="tel" placeholder="Phone Number">
+<form onsubmit="event.preventDefault(); sendToWhatsApp();">
+    <input id="studentName" type="text" placeholder="Student Name" required>
+    <input id="phoneNumber" type="tel" placeholder="Phone Number" required>
 
-<select id="studentClass">
-    <option value="">Select Class</option>
-    <option>Class 1–5</option>
-    <option>Class 6–8</option>
-    <option>Class 9–10</option>
-    <option>Class 11</option>
-    <option>Class 12</option>
-</select>
+    <select id="studentClass" required>
+        <option value="">Select Class</option>
+        <option>Class 1–5</option>
+        <option>Class 6–8</option>
+        <option>Class 9–10</option>
+        <option>Class 11</option>
+        <option>Class 12</option>
+    </select>
 
-<select id="interest">
-    <option value="">Select Interest</option>
-    <option>All Subjects (Class 1–12)</option>
-    <option>JEE Preparation</option>
-    <option>NEET Preparation</option>
-    <option>All Subjects + JEE / NEET</option>
-</select>
+    <select id="interest" required>
+        <option value="">Select Interest</option>
+        <option>All Subjects (Class 1–12)</option>
+        <option>JEE Preparation</option>
+        <option>NEET Preparation</option>
+        <option>All Subjects + JEE / NEET</option>
+    </select>
 
-<button type="button" onclick="sendToWhatsApp()">
-Send Enquiry on WhatsApp
-</button>
+    <button type="button" onclick="sendToWhatsApp()">
+        Send Enquiry on WhatsApp
+    </button>
 </form>
 </section>
 
-<!-- CONTACT -->
 <div class="contact">
 <h2>Contact</h2>
 <p>📞 +91 8899800719</p>
-<p>📍 Your City</p>
+<p>📍 Srinagar, Jammu and Kashmir</p>
 </div>
 
 <footer>
@@ -262,6 +294,7 @@ Send Enquiry on WhatsApp
 
 </body>
 </html>
+
 
 
 
