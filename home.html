@@ -1,0 +1,258 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A+ Home Tuition</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+    box-sizing:border-box;
+}
+body{
+    margin:0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color:#333;
+    background:#f4f6f9;
+}
+
+/* HERO SECTION */
+.hero{
+    min-height:100vh;
+    background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+     url("study.jpg");
+
+    background-size:cover;
+    background-position:center;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+.hero p{
+    font-size:18px;
+    max-width:700px;
+    margin:auto;
+}
+
+.hero button{
+    margin-top:25px;
+    padding:14px 28px;
+    font-size:16px;
+    border:none;
+    border-radius:6px;
+    background:#1e88e5;
+    color:white;
+    cursor:pointer;
+}
+.hero button:hover{
+    background:#1565c0;
+}
+
+/* GENERAL SECTIONS */
+section{
+    padding:60px 20px;
+    max-width:1000px;
+    margin:auto;
+}
+
+h2{
+    text-align:center;
+    color:#1e88e5;
+    margin-bottom:30px;
+}
+
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+.card{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    text-align:center;
+}
+.card p{
+    font-size:15px;
+}
+
+/* HIGHLIGHT */
+.highlight{
+    background:#e3f2fd;
+    padding:30px;
+    border-radius:10px;
+    text-align:center;
+    font-size:16px;
+}
+
+/* FORM */
+form{
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    max-width:500px;
+    margin:auto;
+}
+input, select{
+    width:100%;
+    padding:12px;
+    margin:10px 0;
+    font-size:15px;
+}
+form button{
+    width:100%;
+    padding:14px;
+    background:#1e88e5;
+    color:white;
+    border:none;
+    border-radius:6px;
+    font-size:16px;
+    cursor:pointer;
+}
+form button:hover{
+    background:#1565c0;
+}
+
+/* CONTACT */
+.contact{
+    background:#1e88e5;
+    color:white;
+    text-align:center;
+    padding:40px 20px;
+}
+
+/* FOOTER */
+footer{
+    background:#0d47a1;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#25d366;
+    color:white;
+    padding:16px;
+    border-radius:50%;
+    font-size:22px;
+    text-decoration:none;
+}
+</style>
+
+<script>
+function sendToWhatsApp(){
+    var name = document.getElementById("name").value;
+    var phone = document.getElementById("phone").value;
+    var cls = document.getElementById("class").value;
+
+    var msg =
+    "New Enquiry for A+ Home Tuition:%0A" +
+    "Name: " + name + "%0A" +
+    "Phone: " + phone + "%0A" +
+    "Class: " + cls + "%0A" +
+    "Interested in: All Subjects + JEE / NEET";
+
+    window.open("https://wa.me/8899800719?text=" + msg, "_blank");
+}
+</script>
+</head>
+
+<body>
+
+<!-- HERO -->
+<div class="hero">
+<div>
+<h1>A+ Home Tuition</h1>
+<p>
+All Subjects (Class 1st to 12th) with Competitive Exam Preparation (JEE & NEET).
+Personalized teaching, academic counselling, and complete guidance for success.
+</p>
+<button onclick="document.getElementById('enquiry').scrollIntoView({behavior:'smooth'})">
+Enquire Now
+</button>
+</div>
+</div>
+
+<!-- SERVICES -->
+<section>
+<h2>What We Offer</h2>
+<div class="cards">
+<div class="card">
+<p>📚 <strong>All Subjects</strong><br>Class 1st to 12th (School & Boards)</p>
+</div>
+<div class="card">
+<p>🎯 <strong>Competitive Exams</strong><br>JEE & NEET Preparation</p>
+</div>
+<div class="card">
+<p>🧠 <strong>Counselling & Guidance</strong><br>Study planning & motivation</p>
+</div>
+<div class="card">
+<p>🏠 <strong>Flexible Mode</strong><br>Home & Online Teaching</p>
+</div>
+</div>
+</section>
+
+<!-- FEES -->
+<section>
+<h2>Fees & Timings</h2>
+<div class="highlight">
+Fees are affordable and discussed personally based on class and subjects.<br>
+Flexible morning and evening slots available.
+</div>
+</section>
+
+<!-- ENQUIRY -->
+<section id="enquiry">
+<h2>Admission Enquiry</h2>
+<form>
+<input id="name" type="text" placeholder="Student Name" required>
+<input id="phone" type="tel" placeholder="Phone Number" required>
+
+<select id="class" required>
+<option value="">Select Class</option>
+<option>Class 1–5</option>
+<option>Class 6–8</option>
+<option>Class 9–10</option>
+<option>Class 11</option>
+<option>Class 12</option>
+<option>JEE / NEET Aspirant</option>
+</select>
+
+<button type="button" onclick="sendToWhatsApp()">
+Send Enquiry on WhatsApp
+</button>
+</form>
+</section>
+
+<!-- CONTACT -->
+<div class="contact">
+<h2>Contact Us</h2>
+<p>📞 +91-8899800719</p>
+<p>📍 Shalimar Srinagar</p>
+</div>
+
+<footer>
+© 2025 A+ Home Tuition | Excellence in Education
+</footer>
+
+<a class="whatsapp" href="https://wa.me/91XXXXXXXXXX" target="_blank">💬</a>
+
+</body>
+</html>
