@@ -1,292 +1,592 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A+ Home Tuition | Expert Tutors</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A+ Home Tuition | Unlock Your Academic Potential</title>
+    <meta name="description" content="Premium Home & Online Tuition for Class 1-12, JEE & NEET.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2563eb;       
+            --secondary: #1e293b;     
+            --accent: #f59e0b;        
+            --light: #f8fafc;
+            --white: #ffffff;
+            --shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+        }
 
-<style>
-:root{
---primary:#2563eb;
---secondary:#1e293b;
---accent:#f59e0b;
---bg:#f8fafc;
---white:#fff;
---shadow:0 10px 25px rgba(0,0,0,.08);
-}
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--secondary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-font-family:Poppins,sans-serif;
-background:var(--bg);
-color:var(--secondary);
-overflow-x:hidden;
-}
-a{text-decoration:none;color:inherit}
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        ul { list-style: none; }
 
-/* NAVBAR */
-.navbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:1rem 5%;
-background:#fff;
-position:sticky;
-top:0;
-z-index:1000;
-box-shadow:var(--shadow);
-}
-.logo{font-size:1.4rem;font-weight:700;color:var(--primary)}
-.logo span{color:var(--accent)}
-.nav-links{
-display:flex;
-gap:2rem;
-align-items:center;
-}
-.nav-links a:hover{color:var(--primary)}
-.btn-nav{
-background:var(--primary);
-color:#fff;
-padding:.5rem 1.4rem;
-border-radius:30px;
-font-weight:600;
-}
-.hamburger{display:none;font-size:1.6rem;cursor:pointer}
+        /* --- NAVBAR --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
 
-/* HERO */
-.hero{
-background:linear-gradient(135deg,rgba(30,41,59,.85),rgba(37,99,235,.8)),
-url('https://images.unsplash.com/photo-1523240795612-9a054b0db644');
-background-size:cover;
-background-position:center;
-padding:6rem 5%;
-text-align:center;
-color:#fff;
-}
-.hero h1{font-size:3rem;margin-bottom:1rem}
-.hero p{max-width:700px;margin:auto;opacity:.9}
-.hero-btns{margin-top:2rem;display:flex;gap:1rem;justify-content:center}
-.btn{
-padding:.9rem 2rem;
-border-radius:40px;
-font-weight:600;
-cursor:pointer;
-}
-.btn-primary{background:var(--accent);color:#1e293b}
-.btn-outline{border:2px solid #fff;color:#fff}
+        .logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+        .logo span { color: var(--accent); }
 
-/* STATS */
-.stats{
-background:#fff;
-max-width:1100px;
-margin:-3rem auto 3rem;
-padding:2rem;
-border-radius:16px;
-box-shadow:var(--shadow);
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:1.5rem;
-text-align:center;
-}
-.stat-item h3{font-size:2rem;color:var(--primary)}
-.stat-item p{font-weight:600;color:#64748b}
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a:hover { color: var(--primary); }
 
-/* SECTIONS */
-.section{padding:4rem 5%}
-.section-title{text-align:center;margin-bottom:3rem}
-.section-title h2{font-size:2.4rem}
+        .btn-nav {
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+        .btn-nav:hover { background: #1d4ed8; transform: translateY(-2px); }
+        .hamburger { display: none; font-size: 1.5rem; cursor: pointer; }
 
-/* FEATURES */
-.features{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:2rem;
-}
-.feature{
-background:#fff;
-padding:2rem;
-border-radius:16px;
-box-shadow:var(--shadow);
-text-align:center;
-transition:.3s;
-}
-.feature:hover{transform:translateY(-8px)}
-.feature i{font-size:2.2rem;color:var(--primary);margin-bottom:1rem}
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(135deg, rgba(30, 41, 59, 0.85), rgba(37, 99, 235, 0.8)),
+                        url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
 
-/* FORM */
-.form-section{background:#eef2ff}
-.form-box{
-max-width:700px;
-margin:auto;
-background:#fff;
-border-radius:20px;
-box-shadow:var(--shadow);
-overflow:hidden;
-}
-.tabs{
-display:flex;
-}
-.tab{
-flex:1;
-padding:1.2rem;
-text-align:center;
-font-weight:600;
-cursor:pointer;
-background:#f1f5f9;
-}
-.tab.active{background:#fff;color:var(--primary)}
-.form-content{display:none;padding:2rem}
-.form-content.active{display:block}
-input,select{
-width:100%;
-padding:.9rem;
-margin-bottom:1rem;
-border-radius:8px;
-border:1px solid #cbd5f5;
-}
-.submit-btn{
-width:100%;
-background:#25d366;
-color:#fff;
-padding:1rem;
-border:none;
-border-radius:8px;
-font-size:1.1rem;
-font-weight:600;
-}
+        .hero-content h1 { font-size: 3.5rem; margin-bottom: 1rem; line-height: 1.2; }
+        .hero-content p { font-size: 1.2rem; max-width: 700px; margin: 0 auto 2rem; opacity: 0.9; }
 
-/* TESTIMONIALS */
-.testimonials{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:2rem;
-}
-.testi{
-background:#fff;
-padding:2rem;
-border-radius:16px;
-box-shadow:var(--shadow);
-}
+        .hero-btns { display: flex; gap: 1rem; justify-content: center; }
 
-/* FOOTER */
-footer{
-background:var(--secondary);
-color:#94a3b8;
-padding:3rem 5%;
-}
-.footer-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:2rem;
-}
-footer h4{color:#fff;margin-bottom:1rem}
+        .btn-hero {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+        .btn-primary { background: var(--accent); color: var(--secondary); }
+        .btn-outline { border: 2px solid white; color: white; background: transparent; }
+        .btn-hero:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
-/* WHATSAPP */
-.whatsapp{
-position:fixed;
-right:20px;
-bottom:20px;
-width:60px;
-height:60px;
-background:#25d366;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-color:#fff;
-font-size:30px;
-box-shadow:0 10px 20px rgba(0,0,0,.3);
-}
+        /* --- STATS BAR --- */
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            background: white;
+            padding: 2rem 5%;
+            margin-top: -3rem;
+            position: relative;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            z-index: 10;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .stat-item { text-align: center; }
+        .stat-item h3 { font-size: 2rem; color: var(--primary); }
+        .stat-item p { color: #64748b; font-size: 0.9rem; font-weight: 600; }
 
-/* MOBILE FIXES */
-@media(max-width:900px){
-.features{grid-template-columns:1fr 1fr}
-.testimonials{grid-template-columns:1fr}
-.stats{grid-template-columns:1fr 1fr}
-.footer-grid{grid-template-columns:1fr}
-}
+        /* --- FEATURES --- */
+        .section { padding: 5rem 5%; }
+        .section-title { text-align: center; margin-bottom: 3rem; }
+        .section-title h2 { font-size: 2.5rem; color: var(--secondary); margin-bottom: 0.5rem; }
+        .section-title p { color: #64748b; }
 
-@media(max-width:768px){
-.nav-links{
-position:absolute;
-top:70px;
-left:0;
-width:100%;
-background:#fff;
-flex-direction:column;
-display:none;
-padding:1.5rem 0;
-}
-.nav-links.show{display:flex}
-.hamburger{display:block}
-.hero h1{font-size:2.2rem}
-}
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
 
-</style>
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+            text-align: center;
+            border-top: 4px solid transparent;
+        }
+        .feature-card:hover { transform: translateY(-10px); border-top: 4px solid var(--accent); }
+        .feature-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1.5rem; }
+
+        /* --- TABS & FORMS --- */
+        .form-section { background: #eef2ff; }
+        
+        .tab-container {
+            background: white;
+            max-width: 700px;
+            margin: auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .tabs { display: flex; }
+        .tab {
+            flex: 1;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            font-weight: 600;
+            background: #f1f5f9;
+            color: #64748b;
+            transition: 0.3s;
+            user-select: none;
+        }
+        .tab.active {
+            background: white;
+            color: var(--primary);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .form-content { padding: 2.5rem; display: none; }
+        .form-content.active { display: block; animation: fadeIn 0.5s; }
+
+        input, select {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: #f8fafc;
+            font-family: inherit;
+        }
+        input:focus, select:focus { outline: 2px solid var(--primary); background: white; }
+
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            color: #475569;
+            cursor: pointer;
+        }
+        .checkbox-label input { width: auto; margin: 0 8px 0 0; }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: #25d366;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .btn-submit:hover { background: #1ebc57; }
+
+        /* --- TESTIMONIALS --- */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .testi-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        .testi-card::before {
+            content: "\201C";
+            font-size: 4rem;
+            color: #e2e8f0;
+            position: absolute;
+            top: -10px;
+            left: 20px;
+        }
+        .user-info { display: flex; align-items: center; margin-top: 1rem; }
+        .user-avatar {
+            width: 40px; height: 40px; background: var(--primary);
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; color: white; font-weight: bold; margin-right: 10px;
+        }
+
+        /* --- FOOTER --- */
+        footer { background: var(--secondary); color: #94a3b8; padding: 4rem 5% 2rem; }
+        .footer-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem; margin-bottom: 3rem;
+        }
+        .footer-col h4 { color: white; margin-bottom: 1.5rem; }
+        .footer-col ul li { margin-bottom: 0.8rem; }
+        .footer-col ul li a:hover { color: var(--accent); }
+        
+        .social-icons a {
+            display: inline-block; width: 36px; height: 36px;
+            background: rgba(255,255,255,0.1); color: white;
+            text-align: center; line-height: 36px; border-radius: 50%; margin-right: 10px;
+        }
+        .social-icons a:hover { background: var(--primary); }
+
+        .whatsapp-float {
+            position: fixed; bottom: 30px; right: 30px;
+            background: #25d366; color: white; width: 65px; height: 65px;
+            border-radius: 50%; display: flex; justify-content: center;
+            align-items: center; font-size: 35px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+            z-index: 1000; animation: pulse 2s infinite;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+        @media (max-width: 768px) {
+            .navbar .nav-links { display: none; }
+            .hamburger { display: block; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .stats { flex-direction: column; width: 95%; }
+            .tab-container { border-radius: 0; }
+        }
+    </style>
 </head>
-
 <body>
 
-<nav class="navbar">
-<div class="logo">A+ <span>Home Tuition</span></div>
-<div class="hamburger"><i class="fas fa-bars"></i></div>
-<div class="nav-links">
-<a href="#">Home</a>
-<a href="#">Services</a>
-<a href="#">Reviews</a>
-<a class="btn-nav" href="#contact">Contact Us</a>
-</div>
-</nav>
+    <nav class="navbar">
+        <div class="logo">A+ <span>Home Tuition</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Services</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#enquiry" class="btn-nav">Contact Us</a></li>
+        </ul>
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
+    </nav>
 
-<section class="hero">
-<h1>Excel in Exams with Expert Tutors</h1>
-<p>One-to-One Home & Online Tuition for School, JEE & NEET</p>
-<div class="hero-btns">
-<button class="btn btn-primary">Find Tutor</button>
-<button class="btn btn-outline">Join as Tutor</button>
-</div>
-</section>
+    <header class="hero" id="home">
+        <div class="hero-content">
+            <h1>Excel in Your Exams<br>With Expert Tutors</h1>
+            <p>One On One Home & Online Tuition for Class 1 to 12. Specialized coaching for JEE, NEET, and Board Exams.</p>
+            <div class="hero-btns">
+                <button id="btn-find-tutor" class="btn-hero btn-primary">Find a Tutor</button>
+                <button id="btn-join-tutor" class="btn-hero btn-outline">Join as Tutor</button>
+            </div>
+        </div>
+    </header>
 
-<div class="stats">
-<div class="stat-item"><h3>500+</h3><p>Students</p></div>
-<div class="stat-item"><h3>50+</h3><p>Tutors</p></div>
-<div class="stat-item"><h3>98%</h3><p>Success</p></div>
-<div class="stat-item"><h3>24/7</h3><p>Support</p></div>
-</div>
+    <div class="stats">
+        <div class="stat-item">
+            <h3>500+</h3>
+            <p>Happy Students</p>
+        </div>
+        <div class="stat-item">
+            <h3>50+</h3>
+            <p>Expert Tutors</p>
+        </div>
+        <div class="stat-item">
+            <h3>98%</h3>
+            <p>Success Rate</p>
+        </div>
+        <div class="stat-item">
+            <h3>24/7</h3>
+            <p>Support</p>
+        </div>
+    </div>
 
-<section class="section">
-<div class="section-title"><h2>Why Choose Us</h2></div>
-<div class="features">
-<div class="feature"><i class="fas fa-user-check"></i><h3>Verified Tutors</h3></div>
-<div class="feature"><i class="fas fa-house-laptop"></i><h3>Home & Online</h3></div>
-<div class="feature"><i class="fas fa-book"></i><h3>Concept Focus</h3></div>
-<div class="feature"><i class="fas fa-wallet"></i><h3>Affordable</h3></div>
-</div>
-</section>
+    <section class="section" id="features">
+        <div class="section-title">
+            <h2>Why Choose Us?</h2>
+            <p>We don't just teach, we mentor future leaders.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h3>Verified Tutors</h3>
+                <p>Highly qualified and background-checked tutors for your safety and quality learning.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-laptop-house"></i>
+                <h3>Hybrid Learning</h3>
+                <p>Choose between comfort of your home or flexibility of online classes.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <h3>Affordable Fees</h3>
+                <p>Premium education shouldn't break the bank. We offer competitive pricing.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-microscope"></i>
+                <h3>Concept Focus</h3>
+                <p>We focus on building strong fundamentals for JEE, NEET and Competitive exams.</p>
+            </div>
+        </div>
+    </section>
 
-<footer id="contact">
-<div class="footer-grid">
-<div><h4>A+ Home Tuition</h4><p>Quality education at your doorstep.</p></div>
-<div><h4>Contact</h4><p>+91 8899800719</p><p>Srinagar / Anantnag</p></div>
-<div><h4>Follow</h4><p>Instagram | Facebook</p></div>
-</div>
-</footer>
+    <section class="section form-section" id="enquiry">
+        <div class="section-title">
+            <h2>Get Started Today</h2>
+            <p>Select an option below to proceed.</p>
+        </div>
 
-<a class="whatsapp" href="https://wa.me/918899800719" target="_blank">
-<i class="fab fa-whatsapp"></i>
-</a>
+        <div class="tab-container">
+            <div class="tabs">
+                <div id="tab-student" class="tab active">I Need a Tutor</div>
+                <div id="tab-teacher" class="tab">I am a Teacher</div>
+            </div>
 
-<script>
-document.querySelector('.hamburger').onclick=()=>{
-document.querySelector('.nav-links').classList.toggle('show');
-};
-</script>
+            <div id="student-form" class="form-content active">
+                <form onsubmit="event.preventDefault(); sendStudentEnquiry();">
+                    <label><b>Student Details</b></label>
+                    <input type="text" id="s_name" placeholder="Student's Full Name" required>
+                    <input type="tel" id="s_phone" placeholder="WhatsApp Number" required>
+                    
+                    <div style="display: flex; gap: 10px;">
+                        <select id="s_class" required>
+                            <option value="">Select Class</option>
+                            <option>Class 1 to 5</option>
+                            <option>Class 6 to 8</option>
+                            <option>Class 9 & 10</option>
+                            <option>Class 11 & 12</option>
+                        </select>
+                        <select id="s_board">
+                            <option value="State Board">State Board</option>
+                            <option value="CBSE">CBSE</option>
+                            <option value="ICSE">ICSE</option>
+                        </select>
+                    </div>
 
+                    <select id="s_goal" required>
+                        <option value="">What do you need?</option>
+                        <option>All Subjects Tuition</option>
+                        <option>Maths & Science Only</option>
+                        <option>JEE / NEET Preparation</option>
+                        <option>English / Language Learning</option>
+                        <option>Any Other Subject</option> </select>
+
+                    <button type="submit" class="btn-submit">
+                        <i class="fab fa-whatsapp"></i> Send Enquiry
+                    </button>
+                </form>
+            </div>
+
+            <div id="teacher-form" class="form-content">
+                <form onsubmit="event.preventDefault(); sendTeacherEnquiry();">
+                    <label><b>Tutor Registration</b></label>
+                    <input type="text" id="t_name" placeholder="Full Name" required>
+                    <input type="tel" id="t_phone" placeholder="WhatsApp Number" required>
+                    <input type="text" id="t_qual" placeholder="Highest Qualification (e.g., M.Sc, B.Tech)" required>
+
+                    <label style="display:block; margin-bottom:10px; font-weight:600;">Subjects you can teach:</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label"><input type="checkbox" name="t_sub" value="Maths"> Mathematics</label>
+                        <label class="checkbox-label"><input type="checkbox" name="t_sub" value="Physics"> Physics</label>
+                        <label class="checkbox-label"><input type="checkbox" name="t_sub" value="Chemistry"> Chemistry</label>
+                        <label class="checkbox-label"><input type="checkbox" name="t_sub" value="Biology"> Biology</label>
+                        <label class="checkbox-label"><input type="checkbox" name="t_sub" value="English"> English</label>
+                        <label class="checkbox-label"><input type="checkbox" name="t_sub" value="All Junior"> All (Class 1-10)</label>
+                    </div>
+
+                    <button type="submit" class="btn-submit">
+                        <i class="fab fa-whatsapp"></i> Apply as Tutor
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="reviews">
+        <div class="section-title">
+            <h2>Success Stories</h2>
+        </div>
+        <div class="testimonials">
+            <div class="testi-card">
+                <p>"The best decision for my son. His math scores improved from 60% to 95% in just 4 months. The tutor is very patient."</p>
+                <div class="user-info">
+                    <div class="user-avatar">S</div>
+                    <div><strong>Anjuman Nisar</strong><br><small>Parent, Class 10</small></div>
+                </div>
+            </div>
+            <div class="testi-card">
+                <p>"Cracking NEET seemed impossible until I joined A+ Home Tuition. The personalized roadmap really helped me focus."</p>
+                <div class="user-info">
+                    <div class="user-avatar">R</div>
+                    <div><strong>Rashid Ahmad </strong><br><small>Medical Student</small></div>
+                </div>
+            </div>
+            <div class="testi-card">
+                <p>"As a tutor, I love the flexibility and the steady flow of students they provide. Highly professional team."</p>
+                <div class="user-info">
+                    <div class="user-avatar">A</div>
+                    <div><strong>Syed Bilal ahmad.</strong><br><small>Senior Physics Faculty</small></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="logo">A+ <span>Home Tuition</span></div>
+                <p style="margin-top:10px;">Empowering students to achieve academic excellence through personalized mentoring.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">About Us</a></li>
+                    <li><a href="#enquiry">Admissions</a></li>
+                    <li><a href="#enquiry">Careers</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li><i class="fas fa-phone"></i> +91 8899800719</li>
+                    <li><i class="fas fa-envelope"></i> contact@aplustuition.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Srinagar / Anantnag</li>
+                </ul>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div style="text-align:center; border-top:1px solid #334155; padding-top:20px;">
+            <p>&copy; 2025 A+ Home Tuition. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/918899800719" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // --- 1. SETUP TAB SWITCHING LOGIC ---
+        function activateTab(type) {
+            // Get Elements
+            const studentTab = document.getElementById('tab-student');
+            const teacherTab = document.getElementById('tab-teacher');
+            const studentForm = document.getElementById('student-form');
+            const teacherForm = document.getElementById('teacher-form');
+
+            // Reset All
+            studentTab.classList.remove('active');
+            teacherTab.classList.remove('active');
+            studentForm.classList.remove('active');
+            teacherForm.classList.remove('active');
+
+            // Activate Selected
+            if(type === 'student') {
+                studentTab.classList.add('active');
+                studentForm.classList.add('active');
+            } else {
+                teacherTab.classList.add('active');
+                teacherForm.classList.add('active');
+            }
+        }
+
+        // --- 2. ATTACH EVENTS WHEN PAGE LOADS ---
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Handle Tabs Click
+            document.getElementById('tab-student').addEventListener('click', function() {
+                activateTab('student');
+            });
+
+            document.getElementById('tab-teacher').addEventListener('click', function() {
+                activateTab('teacher');
+            });
+
+            // Handle Hero Buttons (Scroll + Switch)
+            document.getElementById('btn-find-tutor').addEventListener('click', function() {
+                activateTab('student');
+                document.getElementById('enquiry').scrollIntoView({ behavior: 'smooth' });
+            });
+
+            document.getElementById('btn-join-tutor').addEventListener('click', function() {
+                activateTab('teacher');
+                document.getElementById('enquiry').scrollIntoView({ behavior: 'smooth' });
+            });
+
+        });
+
+        // --- 3. FORM SUBMISSION FUNCTIONS ---
+        function sendStudentEnquiry() {
+            const name = document.getElementById('s_name').value;
+            const phone = document.getElementById('s_phone').value;
+            const cls = document.getElementById('s_class').value;
+            const board = document.getElementById('s_board').value;
+            const goal = document.getElementById('s_goal').value;
+
+            if(!name || !phone || !cls || !goal) { alert("Please fill all required fields."); return; }
+
+            const msg = `*New Student Enquiry* 🎓%0A%0A` +
+                        `👤 Name: ${name}%0A` +
+                        `📞 Phone: ${phone}%0A` +
+                        `📚 Class: ${cls} (${board})%0A` +
+                        `🎯 Requirement: ${goal}`;
+            
+            window.open(`https://wa.me/918899800719?text=${msg}`, '_blank');
+        }
+
+        function sendTeacherEnquiry() {
+            const name = document.getElementById('t_name').value;
+            const phone = document.getElementById('t_phone').value;
+            const qual = document.getElementById('t_qual').value;
+            
+            let subjects = [];
+            document.querySelectorAll('input[name="t_sub"]:checked').forEach(cb => subjects.push(cb.value));
+
+            if(!name || !phone || !qual || subjects.length === 0) { 
+                alert("Please fill all details and select at least one subject."); return; 
+            }
+
+            const msg = `*New Tutor Application* 👨‍🏫%0A%0A` +
+                        `👤 Name: ${name}%0A` +
+                        `📞 Phone: ${phone}%0A` +
+                        `🎓 Qualification: ${qual}%0A` +
+                        `📖 Subjects: ${subjects.join(', ')}`;
+
+            window.open(`https://wa.me/918899800719?text=${msg}`, '_blank');
+        }
+    </script>
 </body>
 </html>
+
 
 
 
