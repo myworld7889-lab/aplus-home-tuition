@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers | A+ Home Tuition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">A+ <span>Home Tuition</span></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="careers.html">Join as Tutor</a></li>
+            <li><a href="admissions.html" class="btn-nav">Book a Tutor</a></li>
+        </ul>
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
+    </nav>
+
+    <div class="page-header">
+        <h1>Become a Tutor</h1>
+        <p>Join our team of 50+ experts. Flexible hours, great earnings, and professional support.</p>
+    </div>
+
+    <div class="standalone-form-container">
+        <form onsubmit="event.preventDefault(); sendTeacherEnquiry();">
+            <label><b>Tutor Registration</b></label>
+            <input type="text" id="t_name" placeholder="Full Name" required>
+            <input type="tel" id="t_phone" placeholder="WhatsApp Number" required>
+            <input type="text" id="t_qual" placeholder="Highest Qualification (e.g., M.Sc, B.Tech)" required>
+
+            <label style="display:block; margin-bottom:10px; font-weight:600;">Subjects you can teach:</label>
+            <div class="checkbox-group">
+                <label class="checkbox-label"><input type="checkbox" name="t_sub" value="Maths"> Mathematics</label>
+                <label class="checkbox-label"><input type="checkbox" name="t_sub" value="Physics"> Physics</label>
+                <label class="checkbox-label"><input type="checkbox" name="t_sub" value="Chemistry"> Chemistry</label>
+                <label class="checkbox-label"><input type="checkbox" name="t_sub" value="Biology"> Biology</label>
+                <label class="checkbox-label"><input type="checkbox" name="t_sub" value="English"> English</label>
+                <label class="checkbox-label"><input type="checkbox" name="t_sub" value="All Junior"> All (Class 1-10)</label>
+            </div>
+
+            <button type="submit" class="btn-submit">
+                <i class="fab fa-whatsapp"></i> Apply as Tutor
+            </button>
+        </form>
+    </div>
+
+    <footer>
+        <div style="text-align:center; color:#94a3b8; padding: 20px;">
+            <p>&copy; 2025 A+ Home Tuition. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.querySelector('i').classList.toggle('fa-bars');
+            hamburger.querySelector('i').classList.toggle('fa-times');
+        });
+
+        // WhatsApp Logic
+        function sendTeacherEnquiry() {
+            const name = document.getElementById('t_name').value;
+            const phone = document.getElementById('t_phone').value;
+            const qual = document.getElementById('t_qual').value;
+            
+            let subjects = [];
+            document.querySelectorAll('input[name="t_sub"]:checked').forEach(cb => subjects.push(cb.value));
+
+            if(!name || !phone || !qual || subjects.length === 0) { 
+                alert("Please fill all details and select at least one subject."); return; 
+            }
+
+            const msg = `*New Tutor Application* 👨‍🏫%0A%0A` +
+                        `👤 Name: ${name}%0A` +
+                        `📞 Phone: ${phone}%0A` +
+                        `🎓 Qualification: ${qual}%0A` +
+                        `📖 Subjects: ${subjects.join(', ')}`;
+
+            window.open(`https://wa.me/918899800719?text=${msg}`, '_blank');
+        }
+    </script>
+</body>
+</html>
